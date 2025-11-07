@@ -1,0 +1,14 @@
+<?php
+
+$nomePokemon = readline("informe seu pokemon: \n");
+
+$nomePokemon = strtolower($nomePokemon);
+
+$pokemon = file_get_contents("https://pokeapi.co/api/v2/pokemon/$nomePokemon");
+
+$pokemon = json_decode($pokemon, true);
+
+print $pokemon['forms'][0]['name'] . "\n";
+print $pokemon['height'] * 10 . " cm \n";
+print $pokemon['weight'] / 10 . " kg \n";
+print $pokemon['types'][0]['type']['name'] . "\n";
