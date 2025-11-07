@@ -1,0 +1,16 @@
+<?php
+
+$fruta = [
+    "cor" => "vermelho",
+    "sabor" => "doce",
+    "formata" => "redonda",
+    "nome" => "maçã"
+
+];
+
+//foreach pode ser usado em qualqyer tipo de lista
+
+foreach($fruta as $chave => $info){ //as coisas da variavel fruta é joga para a variavel info
+    print $chave . " -> " . $info . "\n";
+}
+
