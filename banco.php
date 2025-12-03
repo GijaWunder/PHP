@@ -82,7 +82,7 @@ function sacar(&$clientes){
     $conta = readline("Informe o numero da sua conta: \n");
     $valorSaque = readline("Informe o valor do saque: \n");
 
-    if ( $clientes[$cpf]['contas'][$conta]['saldo'] + CHEQUE_ESPECIAL >= $valorSaque) {
+    if ( $clientes[$cpf]['contas'][$conta]['saldo'] >= $valorSaque) {
         $clientes[$cpf]['contas'][$conta]['saldo'] -= $valorSaque;
 
     }
@@ -97,8 +97,9 @@ function menu(){
     print("2 - Cadastrar Conta \n");
     print("3 - Depositar \n");
     print("4 - Sacar \n");
-    print("5 - Consultar Saldo \n");
-    print("6 - Consultar Extrato \n");
+    print("5 - Consultar Saldo \n"); //fazer 
+    print("6 - Consultar Extrato \n");//fazer
+    //vai ter mais um
     print("7 - Sair \n");
 
     print("Escolha uma opção: \n");
