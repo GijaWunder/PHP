@@ -46,6 +46,7 @@ function cadastrarConta(array $clientes): bool{
     ];
 
     print("Conta criada com sucesso\n");
+    print("O número da sua conta é: $numConta\n");
     return true;
 
 }
@@ -72,6 +73,21 @@ function depositar(array &$clientes){
     print "Depósito realizado com sucesso! \n";
     return true;
     
+
+}
+
+function sacar(&$clientes){
+
+    $cpf = readline("Informe o seu CPF: \n");
+    $conta = readline("Informe o numero da sua conta: \n");
+    $valorSaque = readline("Informe o valor do saque: \n");
+
+    if ( $clientes[$cpf]['contas'][$conta]['saldo'] + CHEQUE_ESPECIAL >= $valorSaque) {
+        $clientes[$cpf]['contas'][$conta]['saldo'] -= $valorSaque;
+
+    }
+
+
 
 }
 
@@ -108,6 +124,10 @@ while(true){
             depositar($clientes);
             break;
 
+        case '4':
+            sacar($clientes);
+            break;
+
         case '7':
             print('Obrigado por usar nosso banco!');
             die();
@@ -117,3 +137,4 @@ while(true){
             break;
     }
 }
+
