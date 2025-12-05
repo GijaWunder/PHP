@@ -51,6 +51,8 @@ function cadastrarConta(array $clientes): bool{
 
 }
 
+
+
 function depositar(array &$clientes){
 
     $cpf = readline("Informe seu CPF novamente: \n");
@@ -68,7 +70,7 @@ function depositar(array &$clientes){
     $clientes[$cpf]['contas'][$numConta]['saldo'] += $valorDeposito;
 
     $dataHora = date('d/m/Y H:i');
-    $clientes[$cpf]['contas'][$numConta]['extrato'][] = "Déposito de R$ $valorDeposito em $dataHora";
+    print $clientes[$cpf]['contas'][$numConta]['extrato'][] = "Déposito de R$ $valorDeposito em $dataHora\n";
 
     print "Depósito realizado com sucesso! \n";
     return true;
@@ -87,7 +89,27 @@ function sacar(&$clientes){
 
     }
 
+    $dataHora = date('d/m/Y H:i');
+    print $clientes[$cpf]['contas'][$conta]['extrato'][] = "Saque de R$ $valorSaque em $dataHora\n";
 
+    print "Saque realizado com sucesso! \n";
+
+    return $valorSaque;
+
+}
+
+function consultarSaldo(&$clientes){
+
+  //  $saldo = 
+
+    print("Você tem $saldo de saldo.");
+
+}
+
+function extrato(&$clientes){
+
+   // $saques =
+  //  $depositos = 
 
 }
 
@@ -107,7 +129,7 @@ function menu(){
 }
 
 while(true){
-    menu();
+   menu();
 
     $opcao = readline();
 
@@ -129,6 +151,9 @@ while(true){
             sacar($clientes);
             break;
 
+        case '5':
+            consultarSaldo($clientes);
+
         case '7':
             print('Obrigado por usar nosso banco!');
             die();
@@ -138,4 +163,3 @@ while(true){
             break;
     }
 }
-
